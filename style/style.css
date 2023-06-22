@@ -13,6 +13,26 @@
     --cor8:#EAEAEA;
     --cor9:#D7F6E2;
 }
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    background-position: 100% 50%;
+    transform: rotate(360deg);
+  }
+}
 
 
 body {
@@ -60,6 +80,8 @@ header {
   border-radius: 50%;
   margin: 0px;
   padding: 0px;
+  border: 1px solid var(--destaque);
+  box-shadow:2px 2px 4px rgba(78, 78, 78, 0.527);
 }
 
 .card-container p {
@@ -81,16 +103,83 @@ main {
  
 }
 
+#sidebar{
+  position: fixed;
+  top: 100px;
+  left: -100vw;
+  background-color: #1f2d3d8e;
+  height: 100vh;
+  width:40%;
+  transition: 0.3s;
+  box-shadow:0px 2px 4px rgba(78, 78, 78, 0.527);
+}
+
+.btn1{
+  width: 50px;
+  height: 30px;
+  margin: 2px;
+}
+
+.btn2{
+  background-color: #FF0000;
+  border: none;
+  background: linear-gradient(to right, #FF0000,#FF0000, #FF7F00, #FFFF00,#FF7F00,#FF0000,#FF0000);
+  background-size: 600% 100%;
+  color: #FFFFFF;
+  height: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 10px;
+  width: 80%;
+  margin: 0px 20px;
+  border-radius: 30px;
+  animation: pulse 5s infinite;
+}
+
+.btn3{
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.compartilhe{
+  background-color: var(--equilibrio);
+}
+
+.compartilhe p{
+  text-align: center;
+  font-size: 15px;
+  color: var(--cor7);
+  font-weight: 500;
+  
+}
+
+
+#sidebar li{
+  border-radius: 5px;
+  padding: 5px;
+  margin: auto;
+
+  color: var(--cor7);
+  background-color: var(--luminosidade);
+  text-align: center;
+  width: 80%;
+  margin: 5px auto;
+}
+
+#sidebar.open{
+  transition: 0.3s;
+  transform: translateX(100vw);
+}
+
 .img-title{
     width: 10%;
 }
 
-video{
-  width: 100%;
-}
-
 .recipe {
   margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 60% 40%;
 }
 
 .recipe h2 {
@@ -98,6 +187,22 @@ video{
   color: var(--destaque);
   padding: 10px;
   display: flex;
+  height: 50px;
+ 
+}
+
+.recipe .title-receita{
+  background-image: url('https://www.pngall.com/wp-content/uploads/4/5-Star-Rating-PNG.png');
+  background-size: 20%;
+  background-position: 100% 0px;
+  background-repeat: no-repeat;
+}
+
+.recipe-left .card-receita{
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .recipe p {
@@ -107,11 +212,11 @@ video{
   font-size: 18px;
   letter-spacing: 0.9px;
 }
+
 .img-receita{
-    width: 100%;
-    border-radius: 10px;
-    border: var(--luminosidade) solid 1px;
-    box-shadow: 0 2px 4px var(--luminosidade);
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 li{
@@ -174,16 +279,6 @@ footer a{
     width: 90%;
     max-width: 90%;
   }
-
-  .video1{
-    display: none;
-    
-  }
-  .video2{
-    display: block;
-    width: 100%;
-    padding: 0px;
-  }
 }
 
 /*celular*/
@@ -213,12 +308,65 @@ footer a{
     white-space: nowrap;
     background-color: #f1f1f1;
   }
-  
-  .video1{
-    display: block;
+  .img-receita{
+    margin: 0px;
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .recipe {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 100% 0%;
+  }
 
+  .ingredientes{
+    display: grid;
+    grid-template-columns: 60% 40%;
   }
-  .video2{
-    display: none;
+  
+  .recipe .title-receita{
+    background-image: url('https://www.pngall.com/wp-content/uploads/4/5-Star-Rating-PNG.png');
+    background-size: 30%;
+    background-position: 100% 0px;
+    background-repeat: no-repeat;
   }
+
+  #sidebar{
+    width:60%;
+    top: 60px;
+  }
+
+}
+
+
+.receita-unica{
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.receita-unica h2{
+  background-image: url('https://www.pngall.com/wp-content/uploads/4/5-Star-Rating-PNG.png');
+  background-size: 20%;
+  background-position: 100% 0px;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: 0;
+  color: var(--destaque);
+  padding: 20px;
+  
+}
+
+.receita-unica p{
+  margin-top: 10px;
+  padding: 20px;
+  color: #F5CC00;
+  font-size: 18px;
+  letter-spacing: 0.9px;
+}
+
+.receita-unica img{
+  border-radius: 10px;
 }
